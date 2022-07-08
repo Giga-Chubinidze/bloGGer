@@ -6,7 +6,7 @@ class PostsController < ApplicationController
   decorates_assigned :posts, :post
 
   def index
-    @posts = Post.all.order("created_at DESC").paginate(page: params[:page], per_page: 4)
+    @posts = Post.all.order("created_at DESC").paginate(page: params[:page], per_page: 2)
   end
 
   def show

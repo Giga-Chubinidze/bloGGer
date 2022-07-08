@@ -92,6 +92,7 @@
    background-color: aquamarine;
  }
  
+
  hr {
    margin: 1rem 0;
    color: inherit;
@@ -242,12 +243,12 @@
  }
  
  a {
-   color: #d9230f;
+   color: #6f1b9a;
    text-decoration: none;
  }
  
  a:hover {
-   color: #ae1c0c;
+   color: #ae0cae;
  }
  
  a:not([href]):not([class]), a:not([href]):not([class]):hover {
@@ -5196,7 +5197,6 @@
  .pagination {
    display: -ms-flexbox;
    display: flex;
-   padding-left: 0;
    list-style: none;
  }
  
@@ -8486,7 +8486,7 @@
  
  .bg-success {
    --bs-bg-opacity: 1;
-   background-color: rgba(var(--bs-success-rgb), var(--bs-bg-opacity)) !important;
+   background-color: #59D18D !important;
  }
  
  .bg-info {
