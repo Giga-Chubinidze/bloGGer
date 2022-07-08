@@ -1,0 +1,9 @@
+- if user_signed_in?
+  .form-outline.mb-4
+    = form_with model: [post, comment], url: post_comments_path(@post) do |form|
+      p
+        - form.label :body
+        br
+        = form.text_area :body, class: "form-control", placeholder: t(:new_comment), style:"background-color: #9edec6;"
+      p
+        = form.submit t(:create), class: "btn btn-warning"

@@ -1,0 +1,24 @@
+en:
+  home: Home
+  new_post: New Post
+  sign_out: Sign Out
+  sign_in: Sign In
+  sign_up: Sign Up
+  email: Email
+  password: Password
+  password_confirmation: Password Confirmation
+  author: author
+  posts: Posts
+  current_user: Current User
+  title: Title
+  description: Description
+  create: Create
+  cancel: Cancel
+  create_post: Create a Post
+  edit_post: Edit Post
+  comments: Comments
+  back: Back
+  edit: Edit
+  delete: Delete
+  new_comment: New Comment
+  created_at: created at

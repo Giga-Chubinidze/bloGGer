@@ -1,0 +1,15 @@
+<h2><%= t(:sign_in)%></h2>
+
+<%= simple_form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+  <div class="form-inputs">
+    <%= f.input :email, :label => t(:email)%>
+    <%= f.input :password, :label => t(:password) %>
+  </div>
+<br>
+  <div class="form-actions">
+    <%= f.button :submit, t(:sign_in), class:"btn btn-primary", style:"float:left; margin-right:15px;"
+%>
+  </div>
+<% end %>
+
+<%= render "devise/shared/links" %>

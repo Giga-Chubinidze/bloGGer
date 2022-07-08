@@ -1,0 +1,27 @@
+.content
+  h1
+    = @post.title
+  hr
+  p
+    = @post.body
+  small
+    = @post.user.email
+  br
+  br
+  small
+    = post.delete_if_author
+    = post.edit_if_author
+
+br
+.watcher
+  = render "comments/form", post: @post, comment: @post.comments.build
+  h2=t(:comments)
+  hr
+  - @comments.each do |comment|
+    = render "comments/comment", post: @post, comment: comment
+  b
+  = will_paginate @comments
+
+br
+br
+br

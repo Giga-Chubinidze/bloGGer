@@ -1,0 +1,20 @@
+h1[style="text-align:center;"]
+  br
+  = t(:posts)
+- posts.each do |post|
+  .post[style="padding-top:30px; text-align:center;"]
+    h2
+      = link_to post.title, post
+    
+    small
+      = t(:author)
+      | : 
+      = link_to post.user.email, profile_path(post.user)
+    br
+    small 
+      = t(:created_at)
+      | : 
+      = post.published_at
+
+hr
+= will_paginate posts

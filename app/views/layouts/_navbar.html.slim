@@ -1,0 +1,17 @@
+nav.navbar.navbar-expand-lg.navbar-dark.bg-primary
+  .container-fluid
+    .navbar-brand= link_to t(:home), root_path
+    - if user_signed_in?
+      .navbar-brand= link_to t(:current_user), profile_path(current_user)
+      .navbar-brand= link_to t(:new_post), new_post_path
+      .navbar-brand= link_to t(:sign_out), destroy_user_session_path, method: :delete
+    - else
+      .navbar-brand= link_to t(:sign_in), new_user_session_path
+      .navbar-brand= link_to t(:sign_up), new_user_registration_path  
+    .navbar-brand
+      = link_to(locale: :ka) do
+        img.c-icon.ms-3.mt-2 alt="geoflag" src="https://cdn.countryflags.com/thumbs/georgia/flag-400.png" width="30"
+
+      = link_to(locale: :en) do
+        img.c-icon.ms-3.mt-2 alt="enflag" src="https://cdn.countryflags.com/thumbs/united-kingdom/flag-400.png" width="30" height="21"
+

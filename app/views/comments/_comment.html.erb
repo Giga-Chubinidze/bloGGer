@@ -1,0 +1,16 @@
+<div class="comment-<%= comment.id %> container" style="border: 1px solid black; padding: 1em; margin: 1em;">
+  <%= link_to comment.user.email, profile_path(comment.user) %>  
+  <% if current_user == comment.user  %>
+    <div class="btn-group float-end">
+      <%= link_to t(:edit), nil, remote: true, class:"btn btn-warning", data: {controller: "comments"}, type:"module"%>
+      <%= button_to t(:delete), [post, comment], class:"btn btn-danger", method: :delete, data: { confirm: "Are you sure?" }, style:"margin-left: 5px;" %>
+    </div>
+    <div id="edit-form-<%= comment.id %>" class="d-none">
+        <%= render "comments/form", post: @post, comment: comment %>
+    </div>
+ <% end %>
+    <hr>
+    <div id="comment-body-<%= comment.id %>">
+      <%= comment.body %>
+    </div>
+</div>
