@@ -1,16 +1,25 @@
-<div class="comment-<%= comment.id %> container" style="border: 1px solid black; padding: 1em; margin: 1em;">
-  <%= link_to comment.user.email, profile_path(comment.user) %>  
+<div class="comment-<%= comment.id%> container", style="border: 1px solid black; padding: 1em; margin: 1em;" >
+  <%= link_to comment.user.email, profile_path(comment.user) %> <br>
+
   <% if current_user == comment.user  %>
     <div class="btn-group float-end">
-      <%= link_to t(:edit), nil, remote: true, class:"btn btn-warning", data: {controller: "comments"}, type:"module"%>
-      <%= button_to t(:delete), [post, comment], class:"btn btn-danger", method: :delete, data: { confirm: "Are you sure?" }, style:"margin-left: 5px;" %>
+      <%= link_to "Edit", nil, remote: true, class:"btn btn-warning", 
+      data: {
+        controller: "comments",
+        action: "comments#toggleForm",
+        comments_form_param: "edit-form-#{comment.id}",
+        comments_body_param: "comment-body-#{comment.id}"
+      }
+      %>
+      <%= button_to "Delete", [post, comment], class:"btn btn-danger", method: :delete, style:"margin-left: 5px;" %>
     </div>
+    
     <div id="edit-form-<%= comment.id %>" class="d-none">
-        <%= render "comments/form", post: @post, comment: comment %>
+      <%= render "comments/edit", post: @post, comment: comment %>
     </div>
  <% end %>
-    <hr>
-    <div id="comment-body-<%= comment.id %>">
-      <%= comment.body %>
-    </div>
+  <hr>
+  <div id="comment-body-<%= comment.id %>">   
+    <%= comment.body %>
+  </div>
 </div>

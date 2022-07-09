@@ -1,0 +1,10 @@
+= link_to comment.user.email, profile_path(comment.user)
+br
+
+- if current_user == comment.user 
+    .btn-group.float-end 
+        =link_to "Edit", nil, remote: true, class:"btn btn-warning",data: {controller: "comments",action: "comments#toggleForm",comments_form_param: "edit-form-#{comment.id}",comments_body_param: "comment-body-#{comment.id}"}
+        =button_to "Delete", [post, comment], class:"btn btn-danger"
+    
+    #edit-form-=comment.id.d-none
+        =render "comments/edit", post: @post, comment: comment

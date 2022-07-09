@@ -22,7 +22,7 @@ class CommentsController < ApplicationController
     end
 
     def update
-        @comment = @post.find(params[:id])
+        @comment = Comment.find(params[:id])
         
         respond_to do |format|
             if @comment.update(comment_params)

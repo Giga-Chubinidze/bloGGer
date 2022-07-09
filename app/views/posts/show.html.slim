@@ -12,9 +12,35 @@
     = post.delete_if_author
     = post.edit_if_author
 
+
+  small
+    - pre_like = @post.likes.find { |like| like.user_id == current_user.id}
+    - if pre_like
+      = button_to 'Liked', post_like_path(@post, pre_like), method: :delete, style:"color: white; background-color:red"
+    -else
+      = button_to 'Like', post_likes_path(@post), method: :post, style:"color: white; background-color:green"
+    br
+    - pre_dislike = @post.dislikes.find { |dislike| dislike.user_id == current_user.id}
+    - if pre_dislike
+      = button_to 'Disliked', post_dislike_path(@post, pre_dislike), method: :delete, style:"color: white; background-color:red"
+    -else
+      = button_to 'Dislike', post_dislikes_path(@post), method: :post, style:"color: white; background-color:green"
+
+
+    
+
+
+
 br
 .watcher
-  = render "comments/form", post: @post, comment: @post.comments.build
+  p
+    = @post.likes.count
+    = (@post.likes.count) == 1 ? 'Like' : 'Likes'
+  p
+    = @post.dislikes.count
+    = (@post.dislikes.count) == 1 ? 'Dislike' : 'Dislikes'
+  
+  = render "comments/form", post: @post, comment: @post.comments.build, submit_label: "Reply"
   h2=t(:comments)
   hr
   - @comments.each do |comment|
