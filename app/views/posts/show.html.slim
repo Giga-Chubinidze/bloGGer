@@ -18,13 +18,9 @@
 
     - disabled_value_like = false
     - disabled_value_dislike = false 
-    - if pre_dislike 
-      - disabled_value_like = true 
-    - if pre_like 
-      = button_to 'Liked', post_like_path(@post, pre_like), method: :delete, :disabled => disabled_value_like, style:"color: white; background-color:red; position:relative; top:91px; left: 1170px;"
-    - else 
-      = button_to 'Like', post_likes_path(@post), method: :post, :disabled => disabled_value_like, style:"color: white; background-color:green; position:relative; top:91px; left: 1170px;"
+    = post.like_button
     br
+    
     - if pre_like
       - disabled_value_dislike = true 
     - if pre_dislike

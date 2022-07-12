@@ -13,6 +13,7 @@ gem 'will_paginate'
 gem 'will_paginate-bootstrap4'
 gem 'draper'
 gem 'carrierwave', '~> 2.0'
+gem 'telephone_number'
 # The original asset pipeline for Rails [https://github.com/rails/sprockets-rails]
 gem "sprockets-rails"
 gem "devise"

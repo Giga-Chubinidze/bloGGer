@@ -16,6 +16,7 @@
               <span class="font-weight-bold">username</span>
               <span class="text-black-50"><%= @user.email %></span>
               <span> </span>
+              <%= render "phone_numbers/countries"%>
             </div>
         </div>
         <div class="col-md-5 border-right">
@@ -56,6 +57,9 @@
                       <i class="fa fa-plus">
                       </i> <%= link_to "Edit Account", edit_user_registration_path %>
                     </span>
+                    <span>
+                      <%= link_to "Add Info", info_path(current_user) %>
+                    <span>
                   </div>
                   <br>
                 <% end %>
