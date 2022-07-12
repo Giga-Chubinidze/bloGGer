@@ -8,7 +8,7 @@ class DislikesController < ApplicationController
        else
          @post.dislikes.create(user_id: current_user.id)
        end
-       redirect_to post_path(@post)
+       redirect_to root_path(@post)
     end
  
     def destroy
@@ -17,7 +17,7 @@ class DislikesController < ApplicationController
        else
          @dislike.destroy
        end
-       redirect_to post_path(@post)
+       redirect_to post_path
     end
     
     private

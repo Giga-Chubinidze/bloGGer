@@ -11,24 +11,16 @@
   small
     = post.delete_if_author
     = post.edit_if_author
-
+  br
   small
     - pre_like = @post.likes.find { |like| like.user_id == current_user.id}
     - pre_dislike = @post.dislikes.find { |dislike| dislike.user_id == current_user.id}
 
-    - disabled_value_like = false
-    - disabled_value_dislike = false 
+
     = post.like_button
     br
     
-    - if pre_like
-      - disabled_value_dislike = true 
-    - if pre_dislike
-      = button_to 'Disliked', post_dislike_path(@post, pre_dislike), method: :delete, :disabled => disabled_value_dislike, style:"color: white; background-color:red; position:relative; left:50px; top:40px; left: 1230px;", class:"react"
-    -else
-      = button_to 'Dislike', post_dislikes_path(@post), method: :post, :disabled => disabled_value_dislike, style:"color: white; background-color:green; position:relative; left:50px; top:40px; left: 1230px;", class:"react"
-
-
+    = post.dislike_button
     
 
 
