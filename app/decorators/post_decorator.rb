@@ -29,28 +29,43 @@ class PostDecorator < ApplicationDecorator
     end
   end
 
+  def user_logged?
+    h.current_user ? true : false
+  end
+  
   def like_button
-    @pre_like = post.likes.find { |like| like.user_id == h.current_user.id}
-    @pre_dislike = post.dislikes.find { |dislike| dislike.user_id == h.current_user.id}
-    disabled_value_like = @pre_dislike ? true : false
-    like_icon_styling = "width:4%; height:4%; position:relative; top:91px; left: 1170px;"
-    
-    if @pre_like
-      butt_on(disabled_value_like, h.image_tag("thumbsupturned.png", style:like_icon_styling), h.delete_like_path(post, @pre_like), data: {turbo_method: :delete})
-    else
-      butt_on(disabled_value_like, h.image_tag("thumbsup.png", style:like_icon_styling), h.create_like_path(post), data: {turbo_method: :post})
+    if user_logged?
+      @pre_like = post.likes.find { |like| like.user_id == h.current_user.id}
+      @pre_dislike = post.dislikes.find { |dislike| dislike.user_id == h.current_user.id}
+      disabled_value_like = @pre_dislike ? true : false
+      like_icon_styling = "width:4%; height:4%; position:relative; top:91px; left: 1170px;"
+      
+      if @pre_like
+        butt_on(disabled_value_like, h.image_tag("thumbsupturned.png", style:like_icon_styling), h.delete_like_path(post, @pre_like), data: {turbo_method: :delete})
+      else
+        butt_on(disabled_value_like, h.image_tag("thumbsup.png", style:like_icon_styling), h.create_like_path(post), data: {turbo_method: :post})
+      end
     end
   end
 
-  def dislike_button    
-    disabled_value_dislike = @pre_like ? true : false 
-    dislike_icon_styling = "width:4%; height:4%; position:relative; left:50px; top:40px; left: 1230px;"
-    if @pre_dislike
-      butt_on(disabled_value_dislike, h.image_tag("thumbsdownturned.png", style:dislike_icon_styling), h.delete_dislike_path(post, @pre_dislike), data: {turbo_method: :delete})
-    else
-      butt_on(disabled_value_dislike, h.image_tag("thumbsdown.png", style:dislike_icon_styling), h.create_dislike_path(post), data: {turbo_method: :post})
+  def dislike_button
+    if user_logged?
+      disabled_value_dislike = @pre_like ? true : false 
+      dislike_icon_styling = "width:4%; height:4%; position:relative; left:50px; top:40px; left: 1230px;"
+      if @pre_dislike
+        butt_on(disabled_value_dislike, h.image_tag("thumbsdownturned.png", style:dislike_icon_styling), h.delete_dislike_path(post, @pre_dislike), data: {turbo_method: :delete})
+      else
+        butt_on(disabled_value_dislike, h.image_tag("thumbsdown.png", style:dislike_icon_styling), h.create_dislike_path(post), data: {turbo_method: :post})
+      end
     end
-    
+  end
+
+  def like_count
+    "#{post.likes.count} #{(post.likes.count) == 1 ? 'Like' : 'Likes'}"
+  end
+
+  def dislike_count 
+    "#{post.dislikes.count} #{(post.dislikes.count) == 1 ? 'Dislike' : 'Dislikes'}"
   end
 
   private

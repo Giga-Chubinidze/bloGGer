@@ -1,11 +1,9 @@
 .content
-  h1
-    = @post.title
+  h1= post.title
   hr
-  p
-    = @post.body
+  p= post.body
   small
-    = @post.user.email
+    = post.user.email
   br
   br
   small
@@ -13,37 +11,22 @@
     = post.edit_if_author
   br
   small
-    - pre_like = @post.likes.find { |like| like.user_id == current_user.id}
-    - pre_dislike = @post.dislikes.find { |dislike| dislike.user_id == current_user.id}
-
-
     = post.like_button
     br
-    
     = post.dislike_button
-    
-
-
-
+      
 br
 .watcher
-  p
-    = @post.likes.count
-    = (@post.likes.count) == 1 ? 'Like' : 'Likes'
-  p
-    = @post.dislikes.count
-    = (@post.dislikes.count) == 1 ? 'Dislike' : 'Dislikes'
+  p= post.like_count
+  p= post.dislike_count
   
   = render "comments/form", post: @post, comment: @post.comments.build, submit_label: "Reply"
   h2=t(:comments)
   hr
   - @comments.each do |comment|
     = render "comments/comment", post: @post, comment: comment
-  b
-  = will_paginate @comments
+  b= will_paginate @comments
 
-br
-br
-br
+brbrbr
 
  
