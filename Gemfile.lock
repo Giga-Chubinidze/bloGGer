@@ -174,6 +174,7 @@ GEM
     nokogiri (1.13.6-x86_64-linux)
       racc (~> 1.4)
     orm_adapter (0.5.0)
+    pg (1.4.1)
     public_suffix (4.0.7)
     puma (5.6.4)
       nio4r (~> 2.0)
@@ -245,7 +246,6 @@ GEM
       actionpack (>= 5.2)
       activesupport (>= 5.2)
       sprockets (>= 3.0.0)
-    sqlite3 (1.4.4)
     ssrf_filter (1.0.7)
     stimulus-rails (1.0.4)
       railties (>= 6.0.0)
@@ -302,13 +302,13 @@ DEPENDENCIES
   importmap-rails
   jbuilder
   mini_magick
+  pg (~> 1.1)
   puma (~> 5.0)
   rails (~> 7.0.3)
   selenium-webdriver
   simple_form
   slim-rails
   sprockets-rails
-  sqlite3 (~> 1.4)
   stimulus-rails
   telephone_number
   turbo-rails
