@@ -5,6 +5,7 @@ nav.navbar.navbar-expand-lg.navbar-dark.bg-success
       .navbar-brand= link_to t(:current_user), profile_path(current_user)
       .navbar-brand= link_to t(:new_post), new_post_path
       .navbar-brand= link_to t(:sign_out), destroy_user_session_path, method: :delete
+      .navbar-brand= link_to "Admin Panel", users_path
     - else
       .navbar-brand= link_to t(:sign_in), new_user_session_path
       .navbar-brand= link_to t(:sign_up), new_user_registration_path  

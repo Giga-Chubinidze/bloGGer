@@ -20,6 +20,7 @@ class PostsController < ApplicationController
   def create
     @post = current_user.posts.build(post_params)
     if @post.save
+      current_user.add_role(:post_creator)
       redirect_to @post, notice: "Post was successfully created!"
     else
       render "new"

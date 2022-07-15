@@ -8,6 +8,7 @@ Rails.application.routes.draw do
       resources :likes
       resources :dislikes
     end
+    resources :users
     resources :places
     get "/user_profile/:id", to: "user_profile#index", as: :profile
     get "/user_info/:id", to: "user_info#index", as: :info
