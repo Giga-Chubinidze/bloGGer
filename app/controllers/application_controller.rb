@@ -2,7 +2,28 @@ class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
   before_action :set_locale
   before_action :configure_permitted_parameters, if: :devise_controller?
+  before_action :set_query 
+  before_action :find_queried_posts
+
+  include Pundit
+
+
+  rescue_from Pundit::NotAuthorizedError, with: :user_not_authorized
+  
   private 
+
+      def set_query 
+        @query = Post.ransack(params[:q])
+      end
+
+      def find_queried_posts
+        @postsed = @query.result.all.order("created_at DESC").paginate(page: params[:page], per_page: 2)
+      end
+
+      def user_not_authorized 
+        flash[:alert] = "You are not authorized to perform this action."
+        redirect_to[request.referrer || root_path]
+      end
 
       def configure_permitted_parameters
         devise_parameter_sanitizer.permit(:sign_up, keys: [:avatar])

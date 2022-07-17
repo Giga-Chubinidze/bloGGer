@@ -15,6 +15,7 @@ gem 'draper'
 gem 'carrierwave', '~> 2.0'
 gem 'telephone_number'
 gem "rolify"
+gem "pundit"
 
 # The original asset pipeline for Rails [https://github.com/rails/sprockets-rails]
 gem "sprockets-rails"
@@ -80,3 +81,5 @@ group :test do
   gem "selenium-webdriver"
   gem "webdrivers"
 end
+
+gem "ransack", "~> 3.2"

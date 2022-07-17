@@ -1,7 +1,0 @@
-<% @users.each do |user| %>
-    <%= user.email %>
-    <%= user.roles.pluck(:name) %>
-    <%= link_to "Edit Role", edit_user_path(user)%>
-    <br>
-<% end %>
-

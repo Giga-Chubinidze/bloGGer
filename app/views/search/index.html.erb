@@ -1,0 +1,29 @@
+<h1 class="text-center"><%= pluralize(@posts.count, "Result") %></h1>
+
+<div class="container">
+    <table class="table">
+        <thead>
+            <tr>
+                <th><%= sort_link(@query, :title, "Title", default_order: :asc) %></th>
+                <th><%= sort_link(@query, :body, "Post Body") %></th>
+                <th><%= sort_link(@query, :email, "Users") %></th>
+                <th><%= sort_link(@query, :likes, "Likes") %></th>
+                <th><%= sort_link(@query, :dislikes, "Dislikes") %></th>
+            </tr>
+        </thead>
+        <tbody>
+            <% @posts.each do |post|%>
+                <tr>
+                    <td><%= link_to post.title, post%> </td>
+                    <td><%= link_to post.body.truncate_words(25) %></td>
+                    <td><%= link_to post.user.email, profile_path(post.user)%></td>
+                    <td><%= link_to post.likes.count, post%></td>
+                    <td><%= link_to post.dislikes.count, post%></td>
+
+                <tr>
+            <% end %>
+        </tbody>
+    </table>
+</div>
+
+

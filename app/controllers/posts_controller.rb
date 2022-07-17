@@ -2,11 +2,13 @@ class PostsController < ApplicationController
   before_action :find_post, only: [:show, :edit, :update, :destroy]
   before_action :authenticate_user!, only: [:new, :edit, :destroy]
   before_action :is_owner, only: [:edit, :destroy]
+  before_action :authorize_post, only: %i[edit update destroy]
 
   decorates_assigned :posts, :post
 
   def index
-    @posts = Post.all.order("created_at DESC").paginate(page: params[:page], per_page: 2)
+    @posts = @query.result.all.order("created_at DESC").paginate(page: params[:page], per_page: 2)
+    authorize @posts
   end
 
   def show
@@ -46,18 +48,22 @@ class PostsController < ApplicationController
 
   private
 
-  def post_params
-    params.require(:post).permit(:title, :body, :user)
-  end
-
-  def find_post
-    @post = Post.find(params[:id])
-  end
-
-  def is_owner
-    unless current_user == @post.user
-      flash[:alert] = "That post doesn't belong to you!"
-      redirect_to @post
+    def post_params
+      params.require(:post).permit(:title, :body, :user)
     end
-  end
+
+    def find_post
+      @post =  Post.find(params[:id])
+    end
+
+    def is_owner
+      unless current_user == @post.user
+        flash[:alert] = "That post doesn't belong to you!"
+        redirect_to @post
+      end
+    end
+
+    def authorize_post 
+      authorize @post
+    end
 end
