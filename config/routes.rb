@@ -18,6 +18,16 @@ Rails.application.routes.draw do
 
     get "user_profile/:id/add_phone_number", to: "phone_numbers#new", as: :add_phone_number
     post "/profile/user_info/:id", to: "phone_numbers#create", as: :create_phone_number
+    
+    authenticated :user, -> (user) {user.has_role? :admin} do 
+      get 'admin', to: "admin#index"
+      get 'admin/posts'
+      get 'admin/comments'
+      get 'admin/users'
+      get 'admin/show_post/:id', to: "admin#show_post", as: :admin_post
+    end
+
+
     devise_scope :user do  
       get '/users/sign_out' => 'devise/sessions#destroy' 
     end
