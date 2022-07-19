@@ -1,3 +1,11 @@
+GIT
+  remote: https://github.com/faker-ruby/faker.git
+  revision: b98d32dcca8aa482525320d8463dff741af0d84d
+  branch: master
+  specs:
+    faker (2.21.0)
+      i18n (>= 1.8.11, < 2)
+
 GEM
   remote: https://rubygems.org/
   specs:
@@ -304,6 +312,7 @@ DEPENDENCIES
   debug
   devise
   draper
+  faker!
   haml
   image_processing (~> 1.2)
   importmap-rails

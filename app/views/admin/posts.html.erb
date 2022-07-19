@@ -5,24 +5,32 @@
     <table class="table table-striped" style="background-color:#59D18D;">
         <thead>
             <tr>
-                <th scope="col">Id</th>
-                <th scope="col">Post</th>
+                <th scope="col">ID</th>
+                <th scope="col">Post Title</th>
+                <th scope="col">Post Body</th>
                 <th scope="col">Author</th>
                 <th scope="col">Comments</th>
                 <th scope="col">Likes</th>
                 <th scope="col">Dislikes</th>
+                <th scope="col">Status</th>
+                <th scope="col">Approve Post</th>
+                <th scope="col">Delete Post</th>
+
             </tr>
         </thead>
         <tbody>
             <% @posts.each do |post| %>
                 <tr>
                     <th scope="row"><%= post.id %></th>
-                    <td><%= link_to post.title, admin_post_path(post) %></td>
+                    <td><%= link_to post.title, post_path(post) %></td>
+                    <td><%= post.body.truncate(20)%></td>
                     <td><%= post.user.email %></td>
                     <td><%= pluralize(post.comments.size, "Comment")%></td>
                     <td><%= post.likes.count %></td>
-                    <td><%= post.dislikes.count %></td>
-                </tr>
+                    <td><%= post.dislikes.count %></td><td>Approved? <%= post.approval_status%></td>
+                    <td><%= button_to "Approve", "#", class:"btn btn-danger"%></td>
+                    <td><%= button_to "Delete", admin_post_destroy_path(post), method: :delete,  class:"btn btn-danger" %></td>
+                <tr>
             <% end %>
         </tbody>
     </table>

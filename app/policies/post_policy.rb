@@ -36,6 +36,6 @@ class PostPolicy < ApplicationPolicy
 
   private 
     def valid_permissioned_user
-      (@user.has_role? :admin)|| post.user_id == user.id
+      (@user.has_role? :admin)|| @post.user_id == @user.id
     end
 end

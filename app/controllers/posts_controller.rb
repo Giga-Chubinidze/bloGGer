@@ -47,7 +47,6 @@ class PostsController < ApplicationController
   end
 
   private
-
     def post_params
       params.require(:post).permit(:title, :body, :user)
     end
@@ -57,7 +56,7 @@ class PostsController < ApplicationController
     end
 
     def is_owner
-      unless current_user == @post.user
+      unless current_user == @post.user || current_user.has_role?(:admin)
         flash[:alert] = "That post doesn't belong to you!"
         redirect_to @post
       end
