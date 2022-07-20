@@ -31,6 +31,9 @@ Rails.application.routes.draw do
       delete 'admin/users/:id/delete', to: "admin#destroy_user", as: :admin_user_destroy
     end
 
+    
+    resources :charges, only: [:new, :create]
+
 
     devise_scope :user do  
       get '/users/sign_out' => 'devise/sessions#destroy' 

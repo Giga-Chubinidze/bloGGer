@@ -3,7 +3,6 @@ class ChargesController < ApplicationController
   end
   
   def create
-  # Amount in cents
   @amount = 500
   
   customer = Stripe::Customer.create(
@@ -14,12 +13,10 @@ class ChargesController < ApplicationController
   charge = Stripe::Charge.create(
   :customer => customer.id,
   :amount => @amount,
-  :description => ‘Rails Stripe customer’,
-  :currency => ‘usd’
+  :description => "Rails Stripe customer",
+  :currency => "usd"
   )
-  
-  rescue Stripe::CardError => e
-  flash[:error] = e.message
-  redirect_to new_charge_path
+  flash[:notice] = "Great! You have Bough a VIP Rank"
+  redirect_to root_path
   end
 end
