@@ -34,6 +34,10 @@ html, body {
 .nav {
   width: 100%;
 }
+::selection {
+  color: black;
+  background: lime;
+}
 .pagination {
   justify-content: center;
   padding-bottom: 18px;

@@ -264,6 +264,7 @@ GEM
     ssrf_filter (1.0.7)
     stimulus-rails (1.0.4)
       railties (>= 6.0.0)
+    stripe (6.5.0)
     strscan (3.0.3)
     telephone_number (1.4.16)
     temple (0.8.2)
@@ -329,6 +330,7 @@ DEPENDENCIES
   sprockets-rails
   sqlite3 (~> 1.4)
   stimulus-rails
+  stripe
   telephone_number
   turbo-rails
   tzinfo-data

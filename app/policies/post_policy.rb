@@ -8,7 +8,7 @@ class PostPolicy < ApplicationPolicy
         scope.all
       else
         # scope.where(vip: true)
-        scope.where(approval_status: true)
+        scope.where(approval_status: true).or(scope.where(user: @user))
       end
     end
   end

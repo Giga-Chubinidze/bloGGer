@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_07_19_062723) do
+ActiveRecord::Schema[7.0].define(version: 2022_07_20_080003) do
   create_table "action_text_rich_texts", force: :cascade do |t|
     t.string "name", null: false
     t.text "body"
@@ -102,6 +102,13 @@ ActiveRecord::Schema[7.0].define(version: 2022_07_19_062723) do
     t.integer "user_id"
     t.boolean "approval_status", default: false
     t.index ["user_id"], name: "index_posts_on_user_id"
+  end
+
+  create_table "posts_roles", id: false, force: :cascade do |t|
+    t.integer "post_id"
+    t.integer "role_id"
+    t.index ["post_id"], name: "index_posts_roles_on_post_id"
+    t.index ["role_id"], name: "index_posts_roles_on_role_id"
   end
 
   create_table "roles", force: :cascade do |t|

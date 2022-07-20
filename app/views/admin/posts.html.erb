@@ -29,7 +29,11 @@
                     <td><%= post.likes.count %></td>
                     <td><%= post.dislikes.count %></td>
                     <td><%= button_to "Approve", post_approval_path(post), class:"btn btn-danger"%></td>
-                    <td><%= post.approval_status%></td>
+                    <% if post.approval_status %>
+                        <td><%= link_to post.approval_status, "#", class:"btn", style:"background-color:lime"%></td>
+                    <% else %>
+                        <td><%= link_to post.approval_status, "false", class:"btn", style:"background-color:red"%></td>
+                    <% end %>
                     <td><%= button_to "Delete", admin_post_destroy_path(post), method: :delete,  class:"btn btn-danger" %></td>
                 <tr>
             <% end %>
