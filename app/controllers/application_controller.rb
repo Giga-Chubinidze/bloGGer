@@ -13,7 +13,7 @@ class ApplicationController < ActionController::Base
   private 
 
       def set_query 
-        @query = Post.ransack(params[:q])
+        @query = policy_scope(Post).ransack(params[:q])
       end
 
       def find_queried_posts

@@ -25,6 +25,7 @@ Rails.application.routes.draw do
       get 'admin/comments', to: "admin#comments", as: :admin_comments
       get 'admin/users', to: "admin#users", as: :admin_users
       get 'admin/show_post/:id', to: "admin#show_post", as: :admin_post
+      post 'admin/posts/post/:id/approve', to: "admin#approve_post", as: :post_approval
       delete 'admin/posts/:id/delete', to: "admin#destroy_post", as: :admin_post_destroy
       delete 'admin/comments/:id/delete', to: "admin#destroy_comment", as: :admin_comment_destroy
       delete 'admin/users/:id/delete', to: "admin#destroy_user", as: :admin_user_destroy

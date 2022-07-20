@@ -4,12 +4,11 @@ class PostPolicy < ApplicationPolicy
   class Scope < Scope
     # NOTE: Be explicit about which records you allow access to!
     def resolve
-      if @user != nil && (@user.has_any_role? :admin, :vip)
+      if @user != nil && (@user.has_any_role? :admin)
         scope.all
       else
         # scope.where(vip: true)
-        # scope.where(title: "zdzdzd")
-        scope.all
+        scope.where(approval_status: true)
       end
     end
   end

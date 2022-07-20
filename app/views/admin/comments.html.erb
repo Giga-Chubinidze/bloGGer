@@ -17,7 +17,7 @@
                 <tr>
                     <th scope="row"><%= comment.id %></th>
                     <td><%= comment.body.truncate(20) %></td>
-                    <td><%= comment.user.email%></td>
+                    <td><%= link_to comment.user.email, profile_path(comment.user)%></td>
                     <td><%= link_to comment.post.title, post_path(comment.post)%></td>
                     <td><%= button_to "Delete", admin_comment_destroy_path(comment), method: :delete,  class:"btn btn-danger"%></td>
                 <tr>

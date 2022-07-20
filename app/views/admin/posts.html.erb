@@ -12,8 +12,8 @@
                 <th scope="col">Comments</th>
                 <th scope="col">Likes</th>
                 <th scope="col">Dislikes</th>
-                <th scope="col">Status</th>
                 <th scope="col">Approve Post</th>
+                <th scope="col">Status</th>
                 <th scope="col">Delete Post</th>
 
             </tr>
@@ -24,11 +24,12 @@
                     <th scope="row"><%= post.id %></th>
                     <td><%= link_to post.title, post_path(post) %></td>
                     <td><%= post.body.truncate(20)%></td>
-                    <td><%= post.user.email %></td>
+                    <td><%= link_to post.user.email, profile_path(post.user) %></td>
                     <td><%= pluralize(post.comments.size, "Comment")%></td>
                     <td><%= post.likes.count %></td>
-                    <td><%= post.dislikes.count %></td><td>Approved? <%= post.approval_status%></td>
-                    <td><%= button_to "Approve", "#", class:"btn btn-danger"%></td>
+                    <td><%= post.dislikes.count %></td>
+                    <td><%= button_to "Approve", post_approval_path(post), class:"btn btn-danger"%></td>
+                    <td><%= post.approval_status%></td>
                     <td><%= button_to "Delete", admin_post_destroy_path(post), method: :delete,  class:"btn btn-danger" %></td>
                 <tr>
             <% end %>
