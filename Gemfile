@@ -18,6 +18,7 @@ gem "rolify"
 gem "pundit"
 gem 'faker', :git => 'https://github.com/faker-ruby/faker.git', :branch => 'master'
 gem 'stripe'
+gem 'whenever', require: false
 # The original asset pipeline for Rails [https://github.com/rails/sprockets-rails]
 gem "sprockets-rails"
 gem "devise"
