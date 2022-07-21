@@ -15,8 +15,16 @@
               <br>
               <span class="font-weight-bold">username</span>
               <span class="text-black-50"><%= @user.email %></span>
+              <br>
+              <span class="font-weight-bold">ranks</span>
               <span><%= @user.roles.pluck(:name)%></span>
-              <%= link_to "add phone per favor", add_phone_number_path %>
+
+              <br>
+              <% if @user == current_user %>
+                <%= link_to "Add Phone Number", add_phone_number_path %>
+                <br>
+                <%= render "charges/new"%>
+               <% end %>
             </div>
         </div>
         <div class="col-md-5 border-right">

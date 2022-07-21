@@ -32,7 +32,7 @@ Rails.application.routes.draw do
     end
 
     
-    resources :charges, only: [:new, :create]
+    post "/charges", to: "charges#create", as: :charges
 
 
     devise_scope :user do  

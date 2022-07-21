@@ -6,14 +6,16 @@
     </div>
     <% end %>
       <label class="amount">
-      <span>Amount: $5</span>
       </label>
   </article>
-
 <script src="https://checkout.stripe.com/checkout.js" class="stripe-button"
       data-key="<%= Rails.application.credentials.stripe_publishable_key %>"
       data-description="Monthly plan"
       data-amount="500"
-      data-locale="auto">
+      data-locale="auto"
+      data-label="Buy VIP Rank">
+  
 </script>
+
+
 <% end %>

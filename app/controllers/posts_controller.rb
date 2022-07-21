@@ -23,6 +23,7 @@ class PostsController < ApplicationController
     @post = current_user.posts.build(post_params)
     if @post.save
       current_user.add_role(:post_creator)
+      @post.add_role(:vip_post) if post_params[:is_vip]
       redirect_to @post, notice: "Post was successfully created!"
     else
       render "new"
@@ -48,7 +49,7 @@ class PostsController < ApplicationController
 
   private
     def post_params
-      params.require(:post).permit(:title, :body, :user)
+      params.require(:post).permit(:title, :body, :user, :is_vip)
     end
 
     def find_post

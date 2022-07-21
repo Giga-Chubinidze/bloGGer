@@ -2,12 +2,12 @@ class PostPolicy < ApplicationPolicy
   attr_reader :user, :post
 
   class Scope < Scope
-    # NOTE: Be explicit about which records you allow access to!
     def resolve
-      if @user != nil && (@user.has_any_role? :admin)
+      if @user.nil? || @user.has_role?(:member) 
+        scope.where(approval_status: true).and(scope.where(is_vip: false))
+      elsif @user.has_role? :admin
         scope.all
-      else
-        # scope.where(vip: true)
+      elsif @user.has_role? :vip 
         scope.where(approval_status: true).or(scope.where(user: @user))
       end
     end

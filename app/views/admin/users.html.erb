@@ -9,6 +9,7 @@
                 <th scope="col">email</th>
                 <th scope="col">Posts</th>
                 <th scope="col">Comments</th>
+                <th scope="col">Rank(s)</th>
                 <th scope="col">Delete Account</th>
             </tr>
         </thead>
@@ -19,6 +20,7 @@
                     <td><%= link_to user.email, profile_path(user) %></td>
                     <td><%= pluralize(user.posts.count, "Post") %></td>
                     <td><%= pluralize(user.comments.count, "Comment")%></td>
+                    <td><%= user.roles.pluck(:name)%>
                     <td><%= button_to "Delete", admin_user_destroy_path(user), method: :delete,  class:"btn btn-danger" %></td>
                 <tr>
             <% end %>

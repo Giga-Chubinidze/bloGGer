@@ -15,7 +15,6 @@
                 <th scope="col">Approve Post</th>
                 <th scope="col">Status</th>
                 <th scope="col">Delete Post</th>
-
             </tr>
         </thead>
         <tbody>
@@ -30,9 +29,9 @@
                     <td><%= post.dislikes.count %></td>
                     <td><%= button_to "Approve", post_approval_path(post), class:"btn btn-danger"%></td>
                     <% if post.approval_status %>
-                        <td><%= link_to post.approval_status, "#", class:"btn", style:"background-color:lime"%></td>
+                        <td><%= button_to post.approval_status, "#", class:"btn", style:"background-color:lime; color: black;", :disabled => true%></td>
                     <% else %>
-                        <td><%= link_to post.approval_status, "false", class:"btn", style:"background-color:red"%></td>
+                        <td><%= button_to post.approval_status, "false", class:"btn", style:"background-color:red; color: white;", :disabled => true%></td>
                     <% end %>
                     <td><%= button_to "Delete", admin_post_destroy_path(post), method: :delete,  class:"btn btn-danger" %></td>
                 <tr>
