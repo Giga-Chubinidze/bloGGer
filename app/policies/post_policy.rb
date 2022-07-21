@@ -4,7 +4,7 @@ class PostPolicy < ApplicationPolicy
   class Scope < Scope
     def resolve
       if @user.nil? || @user.has_role?(:member) 
-        scope.where(approval_status: true).and(scope.where(is_vip: false))
+        scope.where(approval_status: true).or(scope.where(user: @user)).and(scope.where(is_vip: false))
       elsif @user.has_role? :admin
         scope.all
       elsif @user.has_role? :vip 

@@ -7,6 +7,9 @@
  </div>
 
 
+  <%= render "posts/new" if current_user %>
+
+
   <div class="col-md-12 col-lg-12">
     <% posts.each do |post|%>
     <br/>
