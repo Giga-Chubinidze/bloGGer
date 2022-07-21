@@ -2,7 +2,7 @@ require "faker"
 
 User.create([{email: "chubinidze46@gmail.com", password: "123456", password_confirmation: "123456"}])
 User.first.add_role(:admin)
-User.forst.add_role(:vip)
+User.first.add_role(:vip)
 
 100.times do 
   user_email = Faker::Internet.email
