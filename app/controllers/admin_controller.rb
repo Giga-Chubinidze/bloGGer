@@ -44,6 +44,8 @@ class AdminController < ApplicationController
   def approve_post 
     @post = Post.find(params[:id])
     @post.update(approval_status: true)
+    mail = UserMailer.approve_post(@post.user_id)
+    mail.deliver_now
     flash[:notice] = "Post was successfully approved!"
     redirect_to admin_posts_path
   end

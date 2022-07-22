@@ -1,6 +1,7 @@
 require "active_support/core_ext/integer/time"
 
 Rails.application.configure do
+  config.active_job.queue_adapter = :sidekiq
 
   # config.hosts << "localhost:3000"
   # #config.action_mailer.default_url_options = { host: 'localhost:3000' }

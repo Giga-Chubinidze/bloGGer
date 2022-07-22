@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  require "sidekiq/web"
   scope "(:locale)", locale: /#{I18n.available_locales.join("|")}/ do 
     devise_for :users
     root "posts#index"
