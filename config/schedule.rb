@@ -18,7 +18,7 @@
 # end
 
 set :output, './log/cron.log'
-every 1.minutes do 
-  runner "puts 'hello world'"
+every 2.days do 
+  runner "Post.disapprove_after_10_days_of_inactivity"
 end
 # Learn more: http://github.com/javan/whenever

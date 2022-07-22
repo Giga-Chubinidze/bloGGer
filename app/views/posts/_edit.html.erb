@@ -7,12 +7,12 @@
   <div class="modal-content">
     <span class="close">&times;</span>
     <div class="text-center">
-      <h1><%= t(:create_post) + ":" %></h1>
+      <h1><%= t(:edit_post) + ":" %></h1>
+      <%= render "form" %>
       <br>
-      <%= render "form", post: Post.new%>
+      <small><%= link_to t(:cancel), post_path(@post), class:"btn btn-primary" %></small>
     </div>
     <br>
-    <small><%= link_to t(:cancel), root_path, class:"btn btn-primary" %></small>
   </div>
 
 </div>
