@@ -26,7 +26,7 @@ class PostsController < ApplicationController
       @post.add_role(:vip_post) if post_params[:is_vip]
       redirect_to @post, notice: "Post was successfully created!"
     else
-      render "new"
+      redirect_to root_path, notice: "Could not be created!"
     end
   end
 
