@@ -323,7 +323,7 @@ DEPENDENCIES
   importmap-rails
   jbuilder
   mini_magick
-  pg
+  pg (~> 1.1)
   puma (~> 5.0)
   pundit
   rails (~> 7.0.3)
