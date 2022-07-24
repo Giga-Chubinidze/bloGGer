@@ -9,6 +9,7 @@ nav.navbar.navbar-expand-lg.navbar-dark.bg-success
       .navbar-brand= link_to t(:sign_in), new_user_session_path
       .navbar-brand= link_to t(:sign_up), new_user_registration_path
     .navbar-brand= render "search/form"
+    / .navbar-brand= render "phone_numbers/new"
     .navbar-brand
       = link_to(locale: :ka) do
         img.c-icon.ms-3.mt-2 alt="geoflag" src="https://cdn.countryflags.com/thumbs/georgia/flag-400.png" width="30"

@@ -11,7 +11,8 @@ class PostDecorator < ApplicationDecorator
 
   def edit_if_author
     if h.current_user == model.user
-      h.link_to(h.t(:edit), "/#{I18n.locale}/posts/#{self.id}/edit", class:"btn btn-primary", style:"position:relative; bottom:38px;")
+      h.render "posts/edit"
+      # h.link_to(h.t(:edit), "/#{I18n.locale}/posts/#{self.id}/edit", class:"btn btn-primary", style:"position:relative; bottom:38px;")
     end
   end
 

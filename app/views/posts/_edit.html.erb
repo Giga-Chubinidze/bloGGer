@@ -1,4 +1,4 @@
-<button id="myBtn" class="btn btn-success">New Post</button>
+<button id="myBtn" class="btn btn-primary" style="position:relative; bottom:38px;">Edit</button>
 
 <!-- The Modal -->
 <div id="myModal" class="modal">
@@ -8,7 +8,7 @@
     <span class="close">&times;</span>
     <div class="text-center">
       <h1><%= t(:edit_post) + ":" %></h1>
-      <%= render "form" %>
+      <%= render "form", post: @post, button_name: "" %>
       <br>
       <small><%= link_to t(:cancel), post_path(@post), class:"btn btn-primary" %></small>
     </div>

@@ -1,15 +1,31 @@
-<h2><%= t(:sign_in)%></h2>
+<section>
+  <div class="container py-5">
+    <div class="row d-flex justify-content-center align-items-center">
+      <div class="col-12 col-md-8 col-lg-6 col-xl-5" >
+        <div class="card text-black" style="background-color:aquamarine">
+          <div class="card-body p-5 text-center" >
+            <div class="mb-md-5 mt-md-4 pb-5">
+              <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+                  <h2 class="fw-bold mb-2 text-uppercase"><%= t(:sign_in) %></h2>
+                    <div class="form-outline mb-4">
+                      <%= f.label t(:email) %>
+                      <br>
+                      <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+                    </div>
 
-<%= simple_form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
-  <div class="form-inputs">
-    <%= f.input :email, :label => t(:email)%>
-    <%= f.input :password, :label => t(:password) %>
+                    <div class="form-outline mb-4">
+                      <%= f.label t(:password) %>
+                      <br>
+                      <%= f.password_field :password, autocomplete: "current-password" %>
+                    </div>
+                    
+                    <button class="btn btn-success" type="submit"><%= t(:sign_in)%></button>
+               <% end %>
+              <%= render "devise/shared/links" %>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
   </div>
-<br>
-  <div class="form-actions">
-    <%= f.button :submit, t(:sign_in), class:"btn btn-primary", style:"float:left; margin-right:15px;"
-%>
-  </div>
-<% end %>
-
-<%= render "devise/shared/links" %>
+</section>

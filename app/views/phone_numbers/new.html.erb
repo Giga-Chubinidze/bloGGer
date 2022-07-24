@@ -6,7 +6,7 @@
           <div class="card-body p-5 text-center">
 
             <h3 class="mb-5">Add Phone Number</h3>
-            <%= form_with model: @phone_number, url: create_phone_number_path, local: true, data: { turbo: false } do |form| %>
+            <%= form_with model: phone_number, url: create_phone_number_path, local: true, data: { turbo: false } do |form| %>
             <div class="form-outline mb-4">
                <%= form.text_field :number, placeholder: "number", class: "form-control form-control-lg" %>
             </div>
@@ -14,16 +14,12 @@
             <div class="form-outline mb-4">
               <div class="form-group mb-6">
                 <div class="mb-3 xl:w-96">
-                  <%= render "countries" %>
+                  <%= render partial: "phone_numbers/countries" %>
                 </div>
               </div>
             </div>
-
-
-
             <%= form.submit "add", class: "btn btn-primary btn-lg btn-block"  %>
             <% end %>
-
           </div>
         </div>
       </div>
