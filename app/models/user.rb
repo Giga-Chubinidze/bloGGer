@@ -5,6 +5,7 @@ class User < ApplicationRecord
   has_many :likes, dependent: :destroy
   has_many :dislikes, dependent: :destroy
   has_many :phone_numbers, dependent: :destroy
+  has_many :places, dependent: :destroy
   
   mount_uploader :avatar, AvatarUploader
   # Include default devise modules. Others available are:

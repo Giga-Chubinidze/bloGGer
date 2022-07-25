@@ -3,7 +3,7 @@
 <h1>Places</h1>
 
 <div id="places">
-  <% @places.each do |place| %>
+  <% current_user.places.each do |place| %>
     <%= render place %>
     <p>
       <%= link_to "Show this place", place %>

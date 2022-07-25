@@ -25,6 +25,15 @@ html, body {
 .main-container {
   position: relative;
 }
+
+.map {
+  width: 50%;
+  height: 50%;
+  border-radius: 5%;
+  border-width: 10px;
+  border-style:solid;
+  border-color: #59D18D;
+}
 .mydiv {
   position: absolute;
   bottom: 0;

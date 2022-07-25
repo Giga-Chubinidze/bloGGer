@@ -1,7 +1,22 @@
 class PhoneNumbersController < ApplicationController
 
+
+  def index 
+    @phone_numbers = PhoneNumber.all()
+  end
+
+  def show 
+  end
+
   def new
     @phone_number = PhoneNumber.new()
+  end
+
+  def destroy
+    flash[:notice] = "Zd"
+    phone = Phone.find_by(id: params[:id])
+    phone.destroy
+    redirect_to phone_numbers_path(current_user)
   end
 
   def create

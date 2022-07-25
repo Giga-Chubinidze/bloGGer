@@ -19,7 +19,9 @@ Rails.application.routes.draw do
 
     get "user_profile/:id/add_phone_number", to: "phone_numbers#new", as: :add_phone_number
     post "/profile/user_info/:id", to: "phone_numbers#create", as: :create_phone_number
-    
+    get "phone_numbers", to: "phone_numbers#index", as: :phone_numbers
+    delete "phone_numbers/delete", to: "phone_numbers#destroy", as: :phone_number_destroy
+
     authenticated :user, -> (user) {user.has_role? :admin} do 
       get 'admin', to: "admin#index"
       get 'admin/posts', to: "admin#posts", as: :admin_posts
