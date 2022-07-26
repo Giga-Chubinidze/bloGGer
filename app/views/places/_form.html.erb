@@ -16,12 +16,12 @@
 
   <div>
     <%= form.label :name, style: "display: block" %>
-    <%= form.text_field :name, style:"width:300px;" %>
+    <%= form.text_field :name, class:"form-control", style:"width:300px;" %>
   </div>
 
   <div>
     <%= form.label :search, style: "display: block" %>
-    <%= form.search_field :search, style:"width:300px;", name: nil, data: {target: "maps.field", action: "keydown->maps#preventSubmit"} %>
+    <%= form.search_field :search, class:"form-control", style:"width:300px;", name: nil, data: {target: "maps.field", action: "keydown->maps#preventSubmit"} %>
   </div>
 
   <div class="d-none">
@@ -35,12 +35,11 @@
   </div>
   <br>
   <div>
-    <%= form.submit %>
+    <%= form.submit class:"btn btn-success"%>
   </div>
   <div>
-  <%= link_to "Back to places", places_path %>
 </div>
 
-  <%= content_tag :div, nil, data: {target: "maps.map"}, class:"map", style:"margin-left:50%; margin-bottom:20%;"%>
+  <%= content_tag :div, nil, data: {target: "maps.map"}, class:"map", style:"position:absolute; right:100px; top:200px;"%>
 
 <% end %>

@@ -8,6 +8,7 @@ head
   = favicon_link_tag asset_path('bloGGerlogo.png')
   = javascript_include_tag "https://maps.googleapis.com/maps/api/js?key=#{Rails.application.credentials.google_map_key}&libraries=places&callback=dispatchMapsEvent", async: true, defer: true, "data-turbolinks-eval": false
 
+
 body
   .main-container
     = render "layouts/navbar"

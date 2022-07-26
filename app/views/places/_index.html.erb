@@ -1,0 +1,111 @@
+<br>
+<!-- The Modal -->
+<div id="places_modal" class="modal">
+
+  <!-- Modal content -->
+  <div class="modal-content">
+    <span class="close">&times;</span>
+    <div class="text-center">
+      <p style="color: green"><%= notice %></p>
+
+      <h1>Places</h1>
+
+      <div id="places"  style="display: inline-block;">
+        <%= link_to "New place", new_place_path %>
+          <br>
+        <% current_user.places.each do |place| %>
+          <div class="each_place" style="border-style:solid">
+          <p>
+            <strong><%= (place.name? ? place.name : "Unnamed").capitalize %></strong>
+          </p>
+          
+          <p style="display: inline-block;">
+            <%= image_tag("https://maps.googleapis.com/maps/api/staticmap?zoom=17&size=400x300&center=#{place.latitude}, #{place.longitude}&key=#{Rails.application.credentials.google_map_key}", alt: 'Map') %>
+          </p>
+          <p>
+            <%= link_to "Show this place", place %>
+          </p>
+          </div>
+          <br>
+        <% end %>
+      </div>
+
+    </div>
+    <br>
+  </div>
+
+</div>
+<style>
+body {font-family: Arial, Helvetica, sans-serif;}
+
+/* The Modal (background) */
+.modal {
+  display: none; /* Hidden by default */
+  position: fixed; /* Stay in place */
+  z-index: 1; /* Sit on top */
+  padding-top: 100px; /* Location of the box */
+  left: 0;
+  top: 0;
+  width: 100%; /* Full width */
+  height: 100%; /* Full height */
+  overflow: auto; /* Enable scroll if needed */
+  background-color: rgb(0,0,0); /* Fallback color */
+  background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+}
+
+/* Modal Content */
+.modal-content {
+  background-color: aquamarine;
+  margin: auto;
+  padding: 20px;
+  border: 1px solid #888;
+  width: 80%;
+}
+
+/* The Close Button */
+.close {
+  color: #aaaaaa;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+  color: #000;
+  text-decoration: none;
+  cursor: pointer;
+}
+</style>
+<script>
+// Get the modal
+var map_modal = document.getElementById("places_modal");
+
+// Get the button that opens the modal
+var map_btn = document.getElementById("places_index");
+
+// Get the <span> element that closes the modal
+var map_span = document.getElementsByClassName("close")[0];
+
+// When the user clicks the button, open the modal 
+map_btn.onclick = function() {
+  map_modal.style.display = "block";
+}
+
+// When the user clicks on <span> (x), close the modal
+map_span.onclick = function() {
+  map_modal.style.display = "none";
+}
+
+// When the user clicks anywhere outside of the modal, close it
+window.onclick = function(event) {
+  if (event.target == map_modal) {
+    map_modal.style.display = "none";
+  }
+}
+</script>
+
+
+
+
+

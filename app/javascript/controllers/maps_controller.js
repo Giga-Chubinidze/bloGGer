@@ -1,4 +1,4 @@
-import { Controller} from "stimulus"
+import { Controller} from "@hotwired/stimulus"
 
 export default class extends Controller {
   static targets = ["field", "map", "latitude", "longitude"]
@@ -20,10 +20,11 @@ export default class extends Controller {
     if(this._map == undefined) {
       this._map = new google.maps.Map(this.mapTarget, {
         center: new google.maps.LatLng(
-          this.latitudeTarget.value,
-          this.longitudeTarget.value
+          // if latlng undefined, point it to georgia with zoom scale of 1
+          this.latitudeTarget.value ? this.latitudeTarget.value : 42.315407,
+          this.longitudeTarget.value ? this.longitudeTarget.value : 43.35689199999999
         ),
-        zoom: 17
+        zoom: this.latitudeTarget.value ? 17 : 1
       })
     }
     return this._map

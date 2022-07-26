@@ -21,9 +21,18 @@
 
               <br>
               <% if @user == current_user %>
-                <%= link_to "My Phone Numbers", phone_numbers_path %>
+                
+
+                <%
+=begin%>
+ <button id="phones_index" class="btn btn-success">My Phone Numbers</button> 
+<%
+=end%>
+                <%= render "phone_numbers/index"%> 
+
                 <br>
-                <%= link_to "My Place Addresses", places_path %>
+                <button id="places_index" class="btn btn-success">My Place Addresses</button>
+                <%= render "places/index"%>
                 <%= render "charges/new"%>
                <% end %>
             </div>
@@ -38,8 +47,12 @@
                     <div class="col-md-6"><label class="labels">Surname</label><input type="text" class="form-control" value="" placeholder="surname"></div>
                 </div>
                 <div class="row mt-3">
-                    <div class="col-md-12"><label class="labels">Mobile Number</label><input type="text" class="form-control" placeholder=<%= @user.phone_numbers.first.number%> value=""></div>
-                    <div class="col-md-12"><label class="labels">Address Line 1</label><input type="text" class="form-control" placeholder=<%= @user.places.first.name %> value=""></div>
+                    <%
+=begin%>
+ <div class="col-md-12"><label class="labels">Mobile Number</label><input type="text" class="form-control" placeholder=<%= @user.phone_numbers.first.number%> value=""></div>
+                    <div class="col-md-12"><label class="labels">Address Line 1</label><input type="text" class="form-control" placeholder=<%= @user.places.first.name %> value=""></div> 
+<%
+=end%>
                     <div class="col-md-12"><label class="labels">Address Line 2</label><input type="text" class="form-control" placeholder="enter address line 2" value=""></div>
                 </div>
                 <div class="row mt-3">
