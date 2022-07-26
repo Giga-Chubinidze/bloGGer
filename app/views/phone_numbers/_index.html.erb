@@ -1,3 +1,4 @@
+<br>
 <!-- The Modal -->
 <div id="phones_modal" class="modal">
 
@@ -12,6 +13,9 @@
 <div id="phones" style="display: inline-block;">
   <%= link_to "New Number", add_phone_number_path(current_user) %>
   <br><br>
+  <% if current_user.phone_numbers.empty? %>
+    <strong><%="Start by adding Phone Numbers"%></strong>
+  <% end %>
   <% current_user.phone_numbers.each do |number| %>
     <div class="each_number" style="border-style:solid">
       <p>
@@ -64,15 +68,15 @@ body {font-family: Arial, Helvetica, sans-serif;}
 }
 
 /* The Close Button */
-.close {
+.close_telephone {
   color: #aaaaaa;
   float: right;
   font-size: 28px;
   font-weight: bold;
 }
 
-.close:hover,
-.close:focus {
+.close_telephone:hover,
+.close_telephone:focus {
   color: #000;
   text-decoration: none;
   cursor: pointer;
@@ -98,12 +102,6 @@ telephone_span.onclick = function() {
   telephone_modal.style.display = "none";
 }
 
-// When the user clicks anywhere outside of the modal, close it
-window.onclick = function(event) {
-  if (event.target == telephone_modal) {
-    telephone_modal.style.display = "none";
-  }
-}
 </script>
 
 

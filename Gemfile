@@ -23,7 +23,7 @@ gem 'whenever', require: false
 gem "sprockets-rails"
 gem "devise"
 gem 'mini_magick'
-gem 'sqlite3'
+gem "pg", "~> 1.1"
 # Use pg as the database for Active Record
 gem "pg", "~> 1.1"
 

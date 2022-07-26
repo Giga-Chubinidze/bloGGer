@@ -4,7 +4,7 @@
 
   <!-- Modal content -->
   <div class="modal-content">
-    <span class="close">&times;</span>
+    <span class="close_place">&times;</span>
     <div class="text-center">
       <p style="color: green"><%= notice %></p>
 
@@ -12,7 +12,10 @@
 
       <div id="places"  style="display: inline-block;">
         <%= link_to "New place", new_place_path %>
-          <br>
+          <br><br>
+          <% if current_user.places.empty? %>
+            <strong><%="Start by adding Place Addresses"%></strong>
+          <% end %>
         <% current_user.places.each do |place| %>
           <div class="each_place" style="border-style:solid">
           <p>
@@ -62,16 +65,16 @@ body {font-family: Arial, Helvetica, sans-serif;}
   width: 80%;
 }
 
-/* The Close Button */
-.close {
+/* The close_place Button */
+.close_place {
   color: #aaaaaa;
   float: right;
   font-size: 28px;
   font-weight: bold;
 }
 
-.close:hover,
-.close:focus {
+.close_place:hover,
+.close_place:focus {
   color: #000;
   text-decoration: none;
   cursor: pointer;
@@ -84,8 +87,8 @@ var map_modal = document.getElementById("places_modal");
 // Get the button that opens the modal
 var map_btn = document.getElementById("places_index");
 
-// Get the <span> element that closes the modal
-var map_span = document.getElementsByClassName("close")[0];
+// Get the <span> element that close_places the modal
+var map_span = document.getElementsByClassName("close_place")[0];
 
 // When the user clicks the button, open the modal 
 map_btn.onclick = function() {
@@ -97,12 +100,6 @@ map_span.onclick = function() {
   map_modal.style.display = "none";
 }
 
-// When the user clicks anywhere outside of the modal, close it
-window.onclick = function(event) {
-  if (event.target == map_modal) {
-    map_modal.style.display = "none";
-  }
-}
 </script>
 
 
