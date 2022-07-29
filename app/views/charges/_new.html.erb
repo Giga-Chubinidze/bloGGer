@@ -1,4 +1,5 @@
 <%= form_tag charges_path do %>
+<% btn_label = t(:buy_vip_rank) %>
   <article>
     <% if flash[:error].present? %>
       <div id="error_explanation">
@@ -13,7 +14,7 @@
       data-description="Monthly plan"
       data-amount="500"
       data-locale="auto"
-      data-label="Buy VIP Rank">
+      data-label=<%= t(:buy_vip_rank)%>>
   
 </script>
 

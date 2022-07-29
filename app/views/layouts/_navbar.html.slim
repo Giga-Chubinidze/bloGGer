@@ -3,7 +3,7 @@ nav.navbar.navbar-expand-lg.navbar-dark.bg-success
     .navbar-brand= link_to t(:home), root_path
     - if user_signed_in?
       .navbar-brand= link_to t(:current_user), profile_path(current_user)
-      .navbar-brand= link_to "Admin Panel", admin_path if current_user.has_role? :admin
+      .navbar-brand= link_to t(:admin_panel), admin_path if current_user.has_role? :admin
       .navbar-brand= link_to t(:sign_out), destroy_user_session_path
     - else
       .navbar-brand= link_to t(:sign_in), new_user_session_path

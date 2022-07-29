@@ -5,12 +5,12 @@
     <table class="table table-striped" style="background-color:#59D18D;">
         <thead>
             <tr>
-                <th scope="col">ID</th>
-                <th scope="col">email</th>
-                <th scope="col">Posts</th>
-                <th scope="col">Comments</th>
-                <th scope="col">Rank(s)</th>
-                <th scope="col">Delete Account</th>
+                <th scope="col"><%= t(:ID)%></th>
+                <th scope="col"><%= t(:email)%></th>
+                <th scope="col"><%= t(:posts)%></th>
+                <th scope="col"><%= t(:comments)%></th>
+                <th scope="col"><%= t(:ranks)%></th>
+                <th scope="col"><%= t(:delete_account)%></th>
             </tr>
         </thead>
         <tbody>
@@ -21,7 +21,7 @@
                     <td><%= pluralize(user.posts.count, "Post") %></td>
                     <td><%= pluralize(user.comments.count, "Comment")%></td>
                     <td><%= user.roles.pluck(:name)%>
-                    <td><%= button_to "Delete", admin_user_destroy_path(user), method: :delete,  class:"btn btn-danger" %></td>
+                    <td><%= button_to t(:delete), admin_user_destroy_path(user), method: :delete,  class:"btn btn-danger" %></td>
                 <tr>
             <% end %>
         </tbody>

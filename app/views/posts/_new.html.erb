@@ -1,4 +1,4 @@
-<button id="myBtn" class="btn btn-success">New Post</button>
+<button id="myBtn" class="btn btn-success"><%= t(:new_post)%></button>
 
 <!-- The Modal -->
 <div id="myModal" class="modal">
@@ -12,7 +12,6 @@
       <%= render "form", post: Post.new%>
     </div>
     <br>
-    <small><%= link_to t(:cancel), root_path, class:"btn btn-primary" %></small>
   </div>
 
 </div>

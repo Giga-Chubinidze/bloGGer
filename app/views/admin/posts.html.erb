@@ -5,16 +5,16 @@
     <table class="table table-striped" style="background-color:#59D18D;">
         <thead>
             <tr>
-                <th scope="col">ID</th>
-                <th scope="col">Post Title</th>
-                <th scope="col">Post Body</th>
-                <th scope="col">Author</th>
-                <th scope="col">Comments</th>
-                <th scope="col">Likes</th>
-                <th scope="col">Dislikes</th>
-                <th scope="col">Approve Post</th>
-                <th scope="col">Status</th>
-                <th scope="col">Delete Post</th>
+                <th scope="col"><%= t(:ID) %></th>
+                <th scope="col"><%= t(:post_title) %></th>
+                <th scope="col"><%= t(:post_body) %></th>
+                <th scope="col"><%= t(:author) %></th>
+                <th scope="col"><%= t(:comments) %></th>
+                <th scope="col"><%= t(:likes) %></th>
+                <th scope="col"><%= t(:dislikes) %></th>
+                <th scope="col"><%= t(:approve_post) %></th>
+                <th scope="col"><%= t(:status) %></th>
+                <th scope="col"><%= t(:delete) %></th>
             </tr>
         </thead>
         <tbody>
@@ -27,13 +27,13 @@
                     <td><%= pluralize(post.comments.size, "Comment")%></td>
                     <td><%= post.likes.count %></td>
                     <td><%= post.dislikes.count %></td>
-                    <td><%= button_to "Approve", post_approval_path(post), class:"btn btn-danger"%></td>
+                    <td><%= button_to t(:approve), post_approval_path(post), class:"btn btn-danger"%></td>
                     <% if post.approval_status %>
-                        <td><%= button_to post.approval_status, "#", class:"btn", style:"background-color:lime; color: black;", :disabled => true%></td>
+                        <td><%= button_to "", "#", class:"btn", style:"background-color:lime; color: black;", :disabled => true%></td>
                     <% else %>
-                        <td><%= button_to post.approval_status, "false", class:"btn", style:"background-color:red; color: white;", :disabled => true%></td>
+                        <td><%= button_to post.approval_status, "", class:"btn", style:"background-color:red; color: white;", :disabled => true%></td>
                     <% end %>
-                    <td><%= button_to "Delete", admin_post_destroy_path(post), method: :delete,  class:"btn btn-danger" %></td>
+                    <td><%= button_to t(:delete), admin_post_destroy_path(post), method: :delete,  class:"btn btn-danger" %></td>
                 <tr>
             <% end %>
         </tbody>

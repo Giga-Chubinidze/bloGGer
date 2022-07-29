@@ -5,11 +5,11 @@
     <table class="table table-striped" style="background-color:#59D18D;">
         <thead>
             <tr>
-                <th scope="col">ID</th>
-                <th scope="col">Body</th>
-                <th scope="col">Author</th>
-                <th scope="col">Post</th>
-                <th scope="col">Delete Comment</th>
+                <th scope="col"><%= t(:ID)%></th>
+                <th scope="col"><%= t(:description)%></th>
+                <th scope="col"><%= t(:author)%></th>
+                <th scope="col"><%= t(:post)%></th>
+                <th scope="col"><%= t(:delete_comment)%></th>
             </tr>
         </thead>
         <tbody>
@@ -19,7 +19,7 @@
                     <td><%= comment.body.truncate(20) %></td>
                     <td><%= link_to comment.user.email, profile_path(comment.user)%></td>
                     <td><%= link_to comment.post.title, post_path(comment.post)%></td>
-                    <td><%= button_to "Delete", admin_comment_destroy_path(comment), method: :delete,  class:"btn btn-danger"%></td>
+                    <td><%= button_to t(:delete), admin_comment_destroy_path(comment), method: :delete,  class:"btn btn-danger"%></td>
                 <tr>
             <% end %>
         </tbody>

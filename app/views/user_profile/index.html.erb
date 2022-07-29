@@ -13,22 +13,22 @@
               </div>
 
               <br>
-              <span class="font-weight-bold">username</span>
+              <span class="font-weight-bold"><%= t(:username) %></span>
               <span class="text-black-50"><%= @user.email %></span>
               <br>
-              <span class="font-weight-bold">ranks</span>
+              <span class="font-weight-bold"><%= t(:ranks) %></span>
               <span><%= @user.roles.pluck(:name)%></span>
 
               <br>
               <% if @user == current_user %>
                 
 
-                <button id="phones_index" class="btn btn-success">My Phone Numbers</button> 
+                <button id="phones_index" class="btn btn-success"><%= t(:my_phone_nums) %></button> 
 
                 <%= render "phone_numbers/index"%> 
 
                 <br>
-                <button id="places_index" class="btn btn-success">My Place Addresses</button>
+                <button id="places_index" class="btn btn-success"><%= t(:my_place_addresses)%></button>
                 <%= render "places/index"%>
                 <%= render "charges/new"%>
                <% end %>
@@ -37,7 +37,7 @@
         <div class="col-md-5 border-right">
             <div class="p-3 py-5">
                 <div class="d-flex justify-content-between align-items-center mb-3">
-                    <h4 class="text-right">User Profile</h4>
+                    <h4 class="text-right"><%= t(:user_profile) %></h4>
                 </div>
                 <div class="row mt-2">
                     <div class="col-md-6"><label class="labels">Name</label><input type="text" class="form-control" placeholder="first name" value=""></div>
@@ -65,15 +65,12 @@
                     <span></span>
                     <span class="border px-3 p-1">
                       <i class="fa fa-plus">
-                      </i> <%= link_to "Edit Account", edit_user_registration_path %>
+                      </i> <%= link_to t(:edit_account), edit_user_registration_path %>
                     </span>
-                    <span>
-                      <%= link_to "Add Info", info_path(current_user) %>
-                    <span>
                   </div>
                   <br>
                 <% end %>
-                <h4 style="text-align:center;">User Posts</h4>
+                <h4 style="text-align:center;"><%= t(:user_posts) %></h4>
                 <% @user.posts.each do |post| %>
                   <div class = "post" style="padding-top:30px; text-align:center;">
                     <h2>

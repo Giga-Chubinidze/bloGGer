@@ -6,9 +6,9 @@
  <div>
  <br>
  <div class="text-center">
-  <%= sort_link(@query, :title, "Sort By Title", default_order: :asc, class: "btn btn-success") %>
-  <%= sort_link(@query, :body, "Sort By Body", class: "btn btn-success") %>
-  <%= sort_link(@query, :created_at, "Sort by time", class: "btn btn-success")%>
+  <%= sort_link(@query, :title, t(:sort_by_title), default_order: :asc, class: "btn btn-success") %>
+  <%= sort_link(@query, :body, t(:sort_by_body), class: "btn btn-success") %>
+  <%= sort_link(@query, :created_at, t(:sort_by_time), class: "btn btn-success")%>
  </div>
 
 
@@ -20,9 +20,9 @@
     <% unless current_user.nil? %>
       <% if (current_user == post.user) || current_user.has_role?(:admin) %>
         <% if post.approval_status %>
-          <span style="background-color:lime;">Approved</span>
+          <span style="background-color:lime;"><%= t(:approved) %></span>
         <% else %>
-          <span style="background-color:red;">Not Approved</span>
+          <span style="background-color:red;"><%= t(:not_approved) %></span>
         <% end %>
       <% end %>
     <% end %>

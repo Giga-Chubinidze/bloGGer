@@ -26,5 +26,48 @@ ka:
   delete: წაშლა
   new_comment: ახალი კომენტარი
   created_at: შექმნის დრო
-
-
+  post: პოსტი
+  search: ძებნა
+  sort_by_title: სათაურით დალაგება
+  sort_by_body: აღწერით დალაგება
+  sort_by_time: დროთი დალაგება
+  forgot_your_password: პაროლის აღდგენა
+  forgot_your_password_ask: პაროლი დაგავიწყდა?
+  reset_pass_instruction: გამომიგზავნე პაროლის აღდგენის ინსტრუქციები
+  new_post: ახალი პოსტი
+  admin_panel: ადმინის გვერდი
+  approved: დადასტურებულია
+  not_approved: დაუდასტურებელია
+  admin: ადმინი
+  Post: პოსტი
+  Comment: კომენტარი
+  User: მომხმარებელი
+  ID: ინდექსი
+  post_title:  სათაური
+  post_body:  აღწერა
+  author: ავტორი
+  comments: კომენტარები
+  likes: მოწონებები
+  dislikes: დაწუნებები
+  approve_post: გამოქვეყნება
+  approve: გამოქვეყნება
+  status: სტატუსი
+  approve_status_true: მართალია
+  approve_status_false: მცდარია
+  delete_post: პოსტის წაშლა
+  delete: წაშლა
+  delete_comment: კომენტარის წაშლა
+  ranks: სტატუსი
+  delete_account: ანგარიშის წაშლა
+  user_profile: მომხმარებლის პროფილი
+  username: იუზერნეიმი
+  my_phone_nums: ჩემი ტელეფონის ნომრები
+  my_place_addresses: ჩემი მისამართები
+  user_posts: მომხმარებლის პოსტები
+  buy_vip_rank: შეისყიდეთ ვიპ რანკი 
+  edit_account: ანგარიშის რედაქტირება
+  avatar: ავატარი
+  current_password: ახლანდელი პაროლი
+  update: განახლება
+  edit_user: მომხმარებლის რედაქტირება
+  cancel_my_account: ჩემი აკაუნტის გაუქმება

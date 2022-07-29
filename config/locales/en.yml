@@ -22,3 +22,46 @@ en:
   delete: Delete
   new_comment: New Comment
   created_at: created at
+  post: Post
+  search: Search
+  sort_by_title: Sort By Title
+  sort_by_body: Sort By Body
+  sort_by_time: Sort By Time
+  forgot_your_password: Forgot Your Password
+  forgot_your_password_ask: Forgot Your Password?
+  reset_pass_instruction: Send me reset password instructions
+  new_post: New Post
+  admin_panel: Admin Panel
+  approved: Approved
+  not_approved: Not Approved
+  admin: Admin
+  Post: Post
+  Comment: Comment
+  User: User
+  ID: ID
+  post_title: Post Title
+  post_body: Post Body
+  author: Author
+  comments: Comments
+  likes: Likes
+  dislikes: Dislikes
+  approve_post: Approve Post
+  approve: Approve
+  status: Status
+  delete_post: Delete Post
+  delete: Delete
+  delete_comment: Delete Comment
+  ranks: Rank(s)
+  delete_account: Delete Account
+  user_profile: User Profile
+  username: Username
+  my_phone_nums: My Phone Numbers
+  my_place_addresses: My Place Addresses
+  user_posts: User Posts
+  buy_vip_rank: Buy VIP Rank
+  edit_account: Edit Account
+  avatar: Avatar
+  current_password: Current Password
+  update: Update
+  edit_user: Edit User
+  cancel_my_account: Cancel My Account
