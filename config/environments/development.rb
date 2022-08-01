@@ -12,14 +12,14 @@ config.action_mailer.raise_delivery_errors = true
 
   config.action_mailer.delivery_method = :smtp
   config.action_mailer.smtp_settings = {
-      address: 'smtp.gmail.com',
-      port: 587,
-      domain: 'localhost:3000',
-      user_name: 'gchubinidze@unisens.ge',
-      password: 'sgjspovlufsufjef',
-      authentication: 'plain',
-      enable_starttls_auto: true
-    }
+    address:              'smtp.gmail.com',
+    port:                  587,
+    domain:               'localhost:3000',
+    user_name:            'nekosimpadze@gmail.com',
+    password:             Rails.application.credentials[:google_mail_key],
+    authentication:       'plain',
+    enable_starttls_auto: true
+   }
 
 
   config.cache_classes = false
